@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blanco Fragrance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body, html {margin:0; padding:0; font-family:'Segoe UI', sans-serif; color:white; overflow-x:hidden;}
+    .video-bg {position:fixed; right:0; bottom:0; min-width:100%; min-height:100%; z-index:-1; filter:brightness(0.6);}
+    .navbar {display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.7); padding:1em;}
+    .navbar a {color:#fff; margin:0 1em; text-decoration:none;}
+    .hero {text-align:center; padding:5em 2em; animation:fadeIn 2s ease-in-out;}
+    .hero h1 {font-size:3em; color:#facc15;}
+    .reasons {display:flex; justify-content:space-around; padding:2em; background:rgba(0,0,0,0.6);}
+    .reason {width:30%; background:rgba(255,255,255,0.1); padding:1em; border-radius:10px; text-align:center;}
+    .lang-toggle {position:fixed; top:1em; right:1em;}
+    @keyframes fadeIn {from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="video-bg">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
+
+  <div class="lang-toggle">
+    <button onclick="toggleLang()">EN / MS</button>
+  </div>
+
+  <nav class="navbar">
+    <div><strong>Blanco Fragrance</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1 id="hero-title">Welcome to Blanco Fragrance</h1>
+    <p id="hero-text">Your gateway to irresistible scents for both men and women</p>
+  </section>
+
+  <section class="reasons">
+    <div class="reason">
+      <i class="fas fa-gem fa-2x"></i>
+      <h3>Premium Quality</h3>
+      <p>Made with imported ingredients and long-lasting freshness.</p>
+    </div>
+    <div class="reason">
+      <i class="fas fa-shipping-fast fa-2x"></i>
+      <h3>Fast Delivery</h3>
+      <p>Get your perfume delivered within 24 hours in Malaysia.</p>
+    </div>
+    <div class="reason">
+      <i class="fas fa-heart fa-2x"></i>
+      <h3>Customer Satisfaction</h3>
+      <p>Trusted by thousands of loyal customers nationwide.</p>
+    </div>
+  </section>
+
+  <!-- AI Chatbot (Kommunicate) -->
+  <script>
+    (function(d, m){
+      var kommunicateSettings = {"appId":"YOUR_APP_ID","popupWidget":true,"automaticChatOpenOnNavigation":true};
+      var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+      window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+
+    const en = {title: "Welcome to Blanco Fragrance", text: "Your gateway to irresistible scents for both men and women"};
+    const ms = {title: "Selamat datang ke Blanco Fragrance", text: "Pintu masuk anda kepada wangian yang menggoda untuk lelaki dan wanita"};
+
+    function toggleLang() {
+      const h1 = document.getElementById("hero-title");
+      const p = document.getElementById("hero-text");
+      if (h1.textContent === en.title) { h1.textContent = ms.title; p.textContent = ms.text; }
+      else { h1.textContent = en.title; p.textContent = en.text; }
+    }
+  </script>
+</body>
+</html>
